@@ -119,6 +119,7 @@ function TurtleRP.buildTooltip(playerName, targetType)
   local class_color     = locallyRetrievable and characterInfo['class_color'] or TurtleRPClassData[class][4]
   local guildName       = nil
   local guildRank       = nil
+  local stillAlive      = nil
   local queriedLevel    = ""
   local icon            = locallyRetrievable and characterInfo['icon'] or nil
   local currently_ic    = locallyRetrievable and characterInfo['currently_ic'] or nil
@@ -129,12 +130,14 @@ function TurtleRP.buildTooltip(playerName, targetType)
   if targetType ~= nil then
     guildName, guildRank= GetGuildInfo(targetType)
     queriedLevel = UnitLevel(targetType)
+	stillAlive = UnitPVPName(targetType)
   end
 
   -- Color variables
   local colorPrefix       = "|cff"
   local thisClassColor    = colorPrefix .. class_color -- Hex code
   local guildColor        = colorPrefix .. "FFD700"
+  local stillColor        = colorPrefix .. "FF0000"
   local whiteColor        = colorPrefix .. "FFFFFF"
   local ICOn              = colorPrefix .. "40AF6F"
   local ICOff             = colorPrefix .. "D3681E"
@@ -185,6 +188,28 @@ function TurtleRP.buildTooltip(playerName, targetType)
   else
     if guildName ~= nil then
       if string.find(getglobal("GameTooltipTextLeft3"):GetText(), guildName) then
+        getglobal("GameTooltipTextLeft3"):SetText("")
+      end
+    end
+  end
+  
+  l = l + 1
+  if stillAlive then
+    getglobal("GameTooltipTextLeft"..l):SetText(stillColor .. guildExtraSpaces .. " Still Alive - Hardcore Mode")
+    l = l + 1
+  else
+    getglobal("GameTooltipTextLeft"..l):SetText(blankLine)
+    if guildExtraSpaces ~= "" then -- if there is an icon, but no guild, add another line
+      l = l + 1
+      TurtleRP.gameTooltip:AddLine(blankLine)
+    end
+  end
+
+  if getglobal("GameTooltipTextLeft3"):GetText() == nil then
+    TurtleRP.gameTooltip:AddLine(blankLine)
+  else
+    if stillAlive ~= nil then
+      if string.find(getglobal("GameTooltipTextLeft3"):GetText(), stillAlive) then
         getglobal("GameTooltipTextLeft3"):SetText("")
       end
     end
