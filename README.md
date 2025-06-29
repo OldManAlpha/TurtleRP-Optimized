@@ -1,3 +1,5 @@
+### There is a [new official version of TurtleRP](https://github.com/luskanek/TurtleRP), which contains the optimizations from this version plus more. It is recommended to use that one.
+
 ## TurtleRP Optimized
 
 TurtleRP has an issue that causes the game to freeze frequently. This is caused by the addon generating an extreme amount of memory garbage, triggering more garbage collections, which will freeze the game for its duration. It also uses a lot of CPU, reducing average framerate. This fork addresses these issues, likely reducing resource usage by 99%+, while preserving all the functionality of the addon.
