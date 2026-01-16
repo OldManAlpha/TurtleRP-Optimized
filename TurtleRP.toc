@@ -1,12 +1,13 @@
 ## Interface: 11200
 ## Title: |cffabd473Turtle RP Official
-## Author: luskanek / OldManAlpha / tempranova / Drixi / Vee / Zara
+## Author: luskanek / OldManAlpha / tempranova / Drixi / Vee / Zara / CarnVanBeck
 ## Version: 1.2
 ## Notes: RP Addon custom made for Turtle WoW
 ## SavedVariables: TurtleRPCharacters, TurtleRPQueryablePlayers
 ## SavedVariablesPerCharacter: TurtleRPCharacterInfo, TurtleRPPlayerProfiles, TurtleRPSettings
 
 ChatThrottleLib\ChatThrottleLib.lua
+scripts\TurtleRPTranslation.lua
 scripts\TurtleRPConstants.lua
 scripts\TurtleRPComms.lua
 scripts\TurtleRPEmotes.lua

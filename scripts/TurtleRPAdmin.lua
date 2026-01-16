@@ -13,40 +13,32 @@ function TurtleRP.OpenAdmin()
   ShowUIPanel(TurtleRP_AdminSB)
 
   TurtleRP_AdminSB_Tab1:SetNormalTexture("Interface\\Icons\\Spell_Nature_MoonGlow")
-  TurtleRP_AdminSB_Tab1.tooltip = "Profile"
   TurtleRP_AdminSB_Tab1:Show()
 
   TurtleRP_AdminSB_Tab2:SetNormalTexture("Interface\\Icons\\INV_Misc_Head_Human_02")
-  TurtleRP_AdminSB_Tab2.tooltip = "At A Glance"
   TurtleRP_AdminSB_Tab2:Show()
 
   TurtleRP_AdminSB_Tab3:SetNormalTexture("Interface\\Icons\\INV_Misc_StoneTablet_11")
-  TurtleRP_AdminSB_Tab3.tooltip = "Description"
   TurtleRP_AdminSB_Tab3:Show()
 
   TurtleRP_AdminSB_Tab4:SetNormalTexture("Interface\\Icons\\INV_Letter_03")
-  TurtleRP_AdminSB_Tab4.tooltip = "Notes"
   TurtleRP_AdminSB_Tab4:Show()
 
   TurtleRP_AdminSB_Tab5:SetNormalTexture("Interface\\Icons\\Trade_Engineering")
-  TurtleRP_AdminSB_Tab5.tooltip = "Settings"
   TurtleRP_AdminSB_Tab5:Show()
 
   TurtleRP_AdminSB_Tab6:SetNormalTexture("Interface\\Icons\\INV_Misc_QuestionMark")
-  TurtleRP_AdminSB_Tab6.tooltip = "About / Help"
   TurtleRP_AdminSB_Tab6:Show()
 
   TurtleRP_AdminSB_Content1_Tab2:Hide()
 
-  TurtleRP_AdminSB_SpellBookFrameTabButton1:SetText("Basic Info")
   TurtleRP_AdminSB_SpellBookFrameTabButton1:SetNormalTexture("Interface\\Spellbook\\UI-Spellbook-Tab1-Selected")
   TurtleRP_AdminSB_SpellBookFrameTabButton1.bookType = "profile"
   TurtleRP_AdminSB_SpellBookFrameTabButton2:SetNormalTexture("Interface\\Spellbook\\UI-SpellBook-Tab-Unselected")
-  TurtleRP_AdminSB_SpellBookFrameTabButton2:SetText("RP Style")
   TurtleRP_AdminSB_SpellBookFrameTabButton2.bookType = "rp_style"
 
+  TurtleRP.localizeAdmin()
   TurtleRP.OnAdminTabClick(1)
-
 end
 
 function TurtleRP.OnAdminTabClick(id)
@@ -232,4 +224,69 @@ function TurtleRP.renderIcons(iconOffset)
       end
     end
   end
+end
+
+function TurtleRP.localizeAdmin()
+  -- Profile Tab
+  TurtleRP_AdminSB_Tab1.tooltip = localize("profile.title")
+    -- Basic Info Subtab    
+    TurtleRP_AdminSB_SpellBookFrameTabButton2:SetText(localize("profile.rp.title"))
+    TurtleRP_AdminSB_SpellBookFrameTabButton1:SetText(localize("profile.basic.title"))
+    TurtleRP_AdminSB_Content1_FlavourText:SetText(localize("profile.basic.flavour"))
+    TurtleRP_AdminSB_Content1_NSFWText:SetText(localize("profile.basic.nsfw"))
+    TurtleRP_AdminSB_Content1_NameText:SetText(localize("profile.basic.characterName"))
+    TurtleRP_AdminSB_Content1_RaceText:SetText(localize("profile.basic.race"))
+    TurtleRP_AdminSB_Content1_IconText:SetText(localize("profile.basic.icon"))
+    TurtleRP_AdminSB_Content1_ClassText:SetText(localize("profile.basic.class"))
+    TurtleRP_AdminSB_Content1_ClassColorText:SetText(localize("profile.basic.classColor"))
+    TurtleRP_AdminSB_Content1_CurrentlyICText:SetText(localize("profile.basic.ic"))
+    TurtleRP_AdminSB_Content1_ICInfoText:SetText(localize("profile.basic.icInfo"))
+    TurtleRP_AdminSB_Content1_ICPronounsText:SetText(localize("profile.basic.icPronouns"))
+    TurtleRP_AdminSB_Content1_OOCInfoText:SetText(localize("profile.basic.oocInfo"))
+    TurtleRP_AdminSB_Content1_OOCPronounsText:SetText(localize("profile.basic.oocPronouns"))
+    TurtleRP_AdminSB_Content1_SaveButton:SetText(localize("generic.save"))
+    -- RP Style Tab
+    TurtleRP_AdminSB_Content1_Tab2_FlavourText:SetText(localize("profile.rp.flavour"))
+    TurtleRP_AdminSB_Content1_Tab2_ExperienceText:SetText(localize("profile.rp.experience"))
+    TurtleRP_AdminSB_Content1_Tab2_WalkupsText:SetText(localize("profile.rp.walkUps"))
+    TurtleRP_AdminSB_Content1_Tab2_InjuryText:SetText(localize("profile.rp.injury"))
+    TurtleRP_AdminSB_Content1_Tab2_RomanceText:SetText(localize("profile.rp.romance"))
+    TurtleRP_AdminSB_Content1_Tab2_DeathText:SetText(localize("profile.rp.death"))
+    TurtleRP_AdminSB_Content1_Tab2_SaveButton:SetText(localize("generic.save"))
+  -- At a Glance Tab
+  TurtleRP_AdminSB_Tab2.tooltip = localize("glance.title")
+  TurtleRP_AdminSB_Content2_FlavourText:SetText(localize("glance.flavour"))
+  TurtleRP_AdminSB_Content2_AAG1Text:SetText(localize("glance.iconAndText1"))
+  TurtleRP_AdminSB_Content2_AAG2Text:SetText(localize("glance.iconAndText2"))
+  TurtleRP_AdminSB_Content2_AAG3Text:SetText(localize("glance.iconAndText3"))
+  TurtleRP_AdminSB_Content2_SaveButton:SetText(localize("generic.save"))
+  -- Description Tab
+  TurtleRP_AdminSB_Tab3.tooltip = localize("description.title")
+  TurtleRP_AdminSB_Content3_FlavourText:SetText(localize("description.flavour"))
+  TurtleRP_AdminSB_Content3_SaveButton:SetText(localize("generic.save"))
+  -- Notes Tab
+  TurtleRP_AdminSB_Tab4.tooltip = localize("notes.title")
+  TurtleRP_AdminSB_Content4_FlavourText:SetText(localize("notes.flavour"))
+  TurtleRP_AdminSB_Content4_SaveButton:SetText(localize("generic.save"))
+  -- Settings Tab
+  TurtleRP_AdminSB_Tab5.tooltip = localize("settings.title")
+  TurtleRP_AdminSB_Content5_PVPText:SetText(localize("settings.battlegrounds"))
+  TurtleRP_AdminSB_Content5_TrayText:SetText(localize("settings.showTray"))
+  TurtleRP_AdminSB_Content5_TrayResetButton:SetText(localize("settings.resetTray"))
+  TurtleRP_AdminSB_Content5_NameText:SetText(localize("settings.largeTooltip"))
+  TurtleRP_AdminSB_Content5_MinimapText:SetText(localize("settings.largeMinimapIcon"))
+  TurtleRP_AdminSB_Content5_MinimapHideText:SetText(localize("settings.hideMinimapIcon"))
+  TurtleRP_AdminSB_Content5_ShareLocText:SetText(localize("settings.shareMapLocation"))
+  TurtleRP_AdminSB_Content5_ShowNSFWText:SetText(localize("settings.showNSFW"))
+  TurtleRP_AdminSB_Content5_SelectProfileText:SetText(localize("settings.selectProfile"))
+  TurtleRP_AdminSB_Content5_SaveButton:SetText(localize("settings.loadProfile"))
+  -- About Tab
+  TurtleRP_AdminSB_Tab6.tooltip = localize("about.title")
+  TurtleRP_AdminSB_Content6_AboutTitle:SetText(localize("about.heading"))
+  TurtleRP_AdminSB_Content6_AboutText:SetText(localize("about.flavour"))
+  TurtleRP_AdminSB_Content6_IssuesTitle:SetText(localize("about.issueHeading"))
+  TurtleRP_AdminSB_Content6_IssuesText:SetText(localize("about.issueFlavour"))
+  TurtleRP_AdminSB_Content6_ReloadButton:SetText(localize("about.rejoinButton"))
+  TurtleRP_AdminSB_Content6_ClearDirectoryButton:SetText(localize("about.clearDirectory"))
+  TurtleRP_AdminSB_Content6_ClearAllDataButton:SetText(localize("about.clearAllData"))
 end

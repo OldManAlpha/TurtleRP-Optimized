@@ -83,9 +83,9 @@
         <Scripts>
           <OnLoad>
             local items = {
-              ["emote"] = "Emote",
-              ["say"] = "Say",
-              ["yell"] = "Yell"
+              ["emote"] = localize("chat.type.options.emote"),
+              ["say"] = localize("chat.type.options.say"),
+              ["yell"] = localize("chat.type.options.yell")
             }
             UIDropDownMenu_Initialize(TurtleRP_ChatBox_ChatTypeDropdown, function()
               for i, v in items do
@@ -198,7 +198,7 @@
               local messageText = TurtleRP_ChatBox_TextScrollBox_TextInput:GetText()
               TurtleRP.SendLongFormMessage(chatType, messageText)
             else
-              _ERRORMESSAGE('Please select a chat type for your message.')
+              _ERRORMESSAGE(localize("chat.missingType"))
             end
           </OnClick>
         </Scripts>
@@ -209,7 +209,7 @@
     <Scripts>
       <OnShow>
         TurtleRP.currentChatType = nil
-        TurtleRP_ChatBox_ChatTypeDropdown_Text:SetText("Chat Type")
+        TurtleRP_ChatBox_ChatTypeDropdown_Text:SetText(localize("chat.type"))
       </OnShow>
       <OnMouseDown>
         this:StartMoving()

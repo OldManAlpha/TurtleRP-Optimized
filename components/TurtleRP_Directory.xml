@@ -128,12 +128,12 @@
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
         if getglobal(this:GetName() .. "Variable"):GetText() == nil then
           if getglobal(this:GetName() .. "_StatusOnline"):IsVisible() then
-            GameTooltip:SetText("Click to view more information.");
+            GameTooltip:SetText(localize("directory.tooltipMore"));
           else
-            GameTooltip:SetText("Player is offline, more details cannot be loaded.");
+            GameTooltip:SetText(localize("directory.tooltipOffline"));
           end
         else
-          GameTooltip:SetText("Click to view more information.");
+          GameTooltip:SetText(localize("directory.tooltipMore"));
         end
       </OnEnter>
       <OnLeave>
@@ -288,7 +288,10 @@
             </Anchors>
             <Layers>
               <Layer level="ARTWORK">
-                <FontString name="$parent_InfoText" inherits="GameFontHighlightSmall" text="Click a name to view more details.">
+                <FontString name="$parent_InfoText" justifyH="LEFT" justifyV="TOP" inherits="GameFontHighlightSmall" text="Click a name to view more details.">
+                <Size>
+                  <AbsDimension x="250" y="23"/>
+                </Size>
                   <Anchors>
                     <Anchor point="RIGHT" relativePoint="RIGHT">
                       <Offset>
@@ -720,14 +723,13 @@
               </OnClick>
               <OnEnter>
                 GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-                GameTooltip:SetText("Remove duplicates and players with invalid names.");
+                GameTooltip:SetText(localize("directory.cleanTooltip"));
               </OnEnter>
               <OnLeave>
                 GameTooltip:Hide();
               </OnLeave>
             </Scripts>
           </Button>
-
           <Button name="$parent_DeleteButton" inherits="UIPanelButtonTemplate" text="Delete Player">
             <Size>
               <AbsDimension x="110" y="22"/>

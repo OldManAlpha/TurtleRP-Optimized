@@ -733,7 +733,10 @@
         <Layers>
           <Layer level="OVERLAY">
             <!-- Race and class -->
-            <FontString name="$parent_FlavourText" justifyH="left" inherits="QuestFont" text="Store private notes about this character.">
+            <FontString name="$parent_FlavourText" justifyH="LEFT" justifyV="TOP" inherits="QuestFont" text="Store private notes about this character.">
+              <Size>
+                <AbsDimension x="280" y="30"/>
+              </Size>
               <Anchors>
                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                   <Offset>
@@ -752,7 +755,7 @@
         <Frames>
           <Button name="$parent_SaveButton" inherits="UIPanelButtonGrayTemplate" text="Save">
             <Size>
-              <AbsDimension x="50" y="25" />
+              <AbsDimension x="75" y="25" />
             </Size>
             <Anchors>
               <Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
@@ -774,7 +777,7 @@
             <Anchors>
               <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                 <Offset>
-                  <AbsDimension x="10" y="-30" />
+                  <AbsDimension x="10" y="-45" />
                 </Offset>
               </Anchor>
               <Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">

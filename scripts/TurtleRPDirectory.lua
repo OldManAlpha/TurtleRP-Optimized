@@ -165,7 +165,7 @@ function TurtleRP.updateDirectorySearch()
     end
     TurtleRP.DirectorySearchResults = searchResults
 
-    TurtleRP_DirectoryFrame_Directory_Total:SetText(totalDirectoryChars .. " adventurers found (" .. totalDirectoryOnline .. " online)")
+    TurtleRP_DirectoryFrame_Directory_Total:SetText(totalDirectoryChars .. localize("directory.found") .. " (" .. totalDirectoryOnline .. localize("directory.foundOnline") .. ")")
 end
 
 function TurtleRP.Directory_ScrollBar_Update()
@@ -198,6 +198,11 @@ function TurtleRP.renderDirectory(directoryOffset)
     end
     currentFrameNumber = currentFrameNumber + 1
   end
+  TurtleRP_DirectoryFrame_TitleText:SetText(localize("directory.title"))
+  TurtleRP_DirectoryFrame_Directory_LFGFrame_InfoText:SetText(localize("directory.flavour"))
+  TurtleRP_DirectoryFrame_Directory_RefreshButton:SetText(localize("directory.refreshButton"))
+  TurtleRP_DirectoryFrame_Directory_CleanButton:SetText(localize("directory.cleanButton"))
+  TurtleRP_DirectoryFrame_Directory_DeleteButton:SetText(localize("directory.deleteButton"))
 end
 
 local onlinePlayers = {}

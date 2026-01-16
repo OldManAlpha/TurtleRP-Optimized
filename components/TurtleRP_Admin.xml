@@ -189,7 +189,10 @@
         <Layers>
     			<Layer level="OVERLAY">
             <!-- Flavour Text -->
-            <FontString name="$parent_FlavourText" inherits="OVERLAY" font="Fonts\FRIZQT__.ttf" text="Greetings, adventurer! Tell us about yourself...">
+            <FontString name="$parent_FlavourText" justifyH="LEFT" justifyV="TOP" inherits="OVERLAY" font="Fonts\FRIZQT__.ttf" text="Greetings, adventurer! Tell us about yourself...">
+              <Size>
+                <AbsDimension x="310" y="30"/>
+              </Size>
               <Anchors>
                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                   <Offset>
@@ -395,7 +398,7 @@
           </CheckButton>
           <Button name="$parent_SaveButton" inherits="UIPanelButtonGrayTemplate" text="Save">
             <Size>
-              <AbsDimension x="50" y="25" />
+              <AbsDimension x="75" y="25" />
             </Size>
             <Anchors>
               <Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
@@ -747,7 +750,10 @@
         <Layers>
     			<Layer level="OVERLAY">
             <!-- Flavour Text -->
-            <FontString name="$parent_FlavourText" inherits="OVERLAY" font="Fonts\FRIZQT__.ttf" text="Describe your RP style for others to see.">
+            <FontString name="$parent_FlavourText" justifyH="LEFT" justifyV="TOP" inherits="OVERLAY" font="Fonts\FRIZQT__.ttf" text="Describe your RP style for others to see.">
+              <Size>
+                <AbsDimension x="310" y="30"/>
+              </Size>
               <Anchors>
                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                   <Offset>
@@ -787,7 +793,7 @@
                 </Anchor>
               </Anchors>
               <FontHeight>
-                <AbsValue val="10" />
+                <AbsValue val="12" />
               </FontHeight>
               <Color r="0" g="0" b="0" />
             </FontString>
@@ -852,7 +858,7 @@
         <Frames>
           <Button name="$parent_SaveButton" inherits="UIPanelButtonGrayTemplate" text="Save">
             <Size>
-              <AbsDimension x="50" y="25" />
+              <AbsDimension x="75" y="25" />
             </Size>
             <Anchors>
               <Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
@@ -903,7 +909,7 @@
           </Frame>
           <Frame name="$parent_WalkupsDropdown" inherits="UIDropDownMenuTemplate" enableMouse="true">
             <Size>
-              <AbsDimension x="70" y="20" />
+              <AbsDimension x="290" y="20" />
             </Size>
             <Anchors>
               <Anchor point="TOPLEFT" relativeTo="$parent_WalkupsText" relativePoint="BOTTOMLEFT">
@@ -1041,7 +1047,7 @@
         <Layers>
     			<Layer level="OVERLAY">
             <!-- Flavour Text -->
-            <FontString name="$parent_FlavourText" justifyH="LEFT" justifyV="top" inherits="OVERLAY" font="Fonts\FRIZQT__.ttf" text="What are the first things that other adventurers notice about you?">
+            <FontString name="$parent_FlavourText" justifyH="LEFT" justifyV="TOP" inherits="OVERLAY" font="Fonts\FRIZQT__.ttf" text="What are the first things that other adventurers notice about you?">
               <Size>
                 <AbsDimension x="310" y="30"/>
               </Size>
@@ -1121,7 +1127,7 @@
         <Frames>
           <Button name="$parent_SaveButton" inherits="UIPanelButtonGrayTemplate" text="Save">
             <Size>
-              <AbsDimension x="50" y="25" />
+              <AbsDimension x="75" y="25" />
             </Size>
             <Anchors>
               <Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
@@ -1588,7 +1594,7 @@
         <Frames>
           <Button name="$parent_SaveButton" inherits="UIPanelButtonGrayTemplate" text="Save">
             <Size>
-              <AbsDimension x="50" y="25" />
+              <AbsDimension x="75" y="25" />
             </Size>
             <Anchors>
               <Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
@@ -1722,7 +1728,7 @@
         <Frames>
           <Button name="$parent_SaveButton" inherits="UIPanelButtonGrayTemplate" text="Save">
             <Size>
-              <AbsDimension x="50" y="25" />
+              <AbsDimension x="75" y="25" />
             </Size>
             <Anchors>
               <Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
@@ -1979,7 +1985,7 @@
           </CheckButton>
           <Button name="$parent_TrayResetButton" inherits="UIPanelButtonTemplate2" text="Reset Tray Position">
             <Size>
-              <AbsDimension x="132" y="24" />
+              <AbsDimension x="115" y="24" />
             </Size>
             <Anchors>
               <Anchor point="LEFT" relativeTo="$parent_TrayButton" relativePoint="RIGHT">
@@ -2150,7 +2156,7 @@
         </Frame>
         <Button name="$parent_SaveButton" inherits="UIPanelButtonTemplate2" text="Load Selected Profile">
             <Size>
-              <AbsDimension x="148" y="25" />
+              <AbsDimension x="170" y="25" />
             </Size>
             <Anchors>
               <Anchor point="LEFT" relativeTo="$parent_ProfileDropdown" relativePoint="RIGHT">
@@ -2283,12 +2289,12 @@
         <!-- Issues Reload Button -->
         <Button name="$parent_ReloadButton" alpha="0.8" inherits="UIPanelButtonGrayTemplate" text="Rejoin / Reload">
           <Size>
-            <AbsDimension x="100" y="25" />
+            <AbsDimension x="105" y="25" />
           </Size>
           <Anchors>
             <Anchor point="BOTTOMLEFT" relativeTo="$parent_IssuesTitle" relativePoint="BOTTOMLEFT">
               <Offset>
-                <AbsDimension x="0" y="-120"/>
+                <AbsDimension x="-5" y="-120"/>
               </Offset>
             </Anchor>
           </Anchors>
@@ -2305,7 +2311,7 @@
         <!-- Clear Directory -->
         <Button name="$parent_ClearDirectoryButton" alpha="0.8" inherits="UIPanelButtonGrayTemplate" text="Clear Directory">
           <Size>
-            <AbsDimension x="100" y="25" />
+            <AbsDimension x="105" y="25" />
           </Size>
           <Anchors>
             <Anchor point="LEFT" relativeTo="$parent_ReloadButton" relativePoint="RIGHT">
@@ -2328,7 +2334,7 @@
         <!-- Clear Everything -->
         <Button name="$parent_ClearAllDataButton" alpha="0.8" inherits="UIPanelButtonGrayTemplate" text="Clear All Data">
           <Size>
-            <AbsDimension x="100" y="25" />
+            <AbsDimension x="105" y="25" />
           </Size>
           <Anchors>
             <Anchor point="LEFT" relativeTo="$parent_ClearDirectoryButton" relativePoint="RIGHT">

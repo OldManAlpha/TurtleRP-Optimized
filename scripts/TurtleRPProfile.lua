@@ -12,6 +12,19 @@ function TurtleRP.OpenProfile(openTo)
   ShowUIPanel(TurtleRP_CharacterDetails)
 
   TurtleRP.OnBottomTabProfileClick(openTo)
+  TurtleRP_CharacterDetails_General_ICInfo:SetText("|cffCC9900" .. localize("profile.basic.icInfo"))
+  TurtleRP_CharacterDetails_General_OOCInfo:SetText("|cffCC9900" .. localize("profile.basic.oocInfo"))
+  TurtleRP_CharacterDetails_General_ExperienceText:SetText(localize("profile.rp.experience.title"))
+  TurtleRP_CharacterDetails_General_WalkupsText:SetText(localize("profile.rp.walkUps.title"))
+  TurtleRP_CharacterDetails_General_InjuryText:SetText(localize("profile.rp.injury.title"))
+  TurtleRP_CharacterDetails_General_RomanceText:SetText(localize("profile.rp.romance.title"))
+  TurtleRP_CharacterDetails_General_DeathText:SetText(localize("profile.rp.death.title"))
+  TurtleRP_CharacterDetails_Notes_FlavourText:SetText(localize("notes.otherPlayer"))
+  TurtleRP_CharacterDetails_Notes_SaveButton:SetText(localize("generic.save"))
+
+  TurtleRP_CharacterDetails_FrameTabButton1:SetText(localize("profile.basic.title"))
+  TurtleRP_CharacterDetails_FrameTabButton2:SetText(localize("description.title"))
+  TurtleRP_CharacterDetails_FrameTabButton3:SetText(localize("notes.title"))
 end
 
 function TurtleRP.OnBottomTabProfileClick(bookType)
@@ -78,9 +91,9 @@ function TurtleRP.buildGeneral(playerName)
   local lastFrame = nil
   lastFrame = TurtleRP.ShowOrHideProfileDetails(lastFrame, characterInfo, TurtleRP_CharacterDetails_General_TargetRaceClass, raceClassString)
   TurtleRP.ShowOrHideProfileDetails(nil, characterInfo, TurtleRP_CharacterDetails_General_ICOOC, characterInfo["currently_ic"] == "1" and "|cff40AF6FIC" or "|cffD3681EOOC")
-  lastFrame = TurtleRP.ShowOrHideProfileDetails(lastFrame, characterInfo, TurtleRP_CharacterDetails_General_ICInfo, "|cffCC9900IC Info" .. TurtleRP.getPronounsText(characterInfo["ic_pronouns"], "|cffffcc80"), characterInfo["ic_info"] == nil or characterInfo["ic_info"] == "")
+  lastFrame = TurtleRP.ShowOrHideProfileDetails(lastFrame, characterInfo, TurtleRP_CharacterDetails_General_ICInfo, "|cffCC9900" .. localize("profile.basic.icInfo") .. TurtleRP.getPronounsText(characterInfo["ic_pronouns"], "|cffffcc80"), characterInfo["ic_info"] == nil or characterInfo["ic_info"] == "")
   lastFrame = TurtleRP.ShowOrHideProfileDetails(lastFrame, characterInfo, TurtleRP_CharacterDetails_General_ICInfoText, characterInfo["ic_info"])
-  lastFrame = TurtleRP.ShowOrHideProfileDetails(lastFrame, characterInfo, TurtleRP_CharacterDetails_General_OOCInfo, "|cffCC9900OOC Info" .. TurtleRP.getPronounsText(characterInfo["ooc_pronouns"], "|cffffcc80"), characterInfo["ooc_info"] == nil or characterInfo["ooc_info"] == "")
+  lastFrame = TurtleRP.ShowOrHideProfileDetails(lastFrame, characterInfo, TurtleRP_CharacterDetails_General_OOCInfo, "|cffCC9900" .. localize("profile.basic.oocInfo") .. TurtleRP.getPronounsText(characterInfo["ooc_pronouns"], "|cffffcc80"), characterInfo["ooc_info"] == nil or characterInfo["ooc_info"] == "")
   lastFrame = TurtleRP.ShowOrHideProfileDetails(lastFrame, characterInfo, TurtleRP_CharacterDetails_General_OOCInfoText, characterInfo["ooc_info"])
 
   TurtleRP_CharacterDetails_General_DarkBack:SetPoint("BOTTOMLEFT", lastFrame, "BOTTOMLEFT", 0, -10)

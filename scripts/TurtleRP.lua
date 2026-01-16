@@ -9,7 +9,7 @@
 TurtleRP.TestMode = 0
 
 -- Dev
-TurtleRP.currentVersion = "1.1.1"
+TurtleRP.currentVersion = "1.1.2"
 TurtleRP.latestVersion = TurtleRP.currentVersion
 -- Chat
 TurtleRP.channelName = "TTRP"
@@ -71,8 +71,10 @@ function TurtleRP:OnEvent()
     TurtleRPCharacterInfoTemplate["icon"] = ""
     TurtleRPCharacterInfoTemplate["full_name"] = UnitName("player")
     TurtleRPCharacterInfoTemplate["race"] = UnitRace("player")
+    TurtleRPCharacterInfoTemplate["raceKey"] = localize(UnitRace("player"))
     TurtleRPCharacterInfoTemplate["class"] = UnitClass("player")
-    TurtleRPCharacterInfoTemplate["class_color"] = TurtleRPClassData[UnitClass("player")][4]
+    TurtleRPCharacterInfoTemplate["classKey"] = localize(UnitClass("player"))
+    TurtleRPCharacterInfoTemplate["class_color"] = TurtleRPClassData[localize(UnitClass("player"))][4]
     TurtleRPCharacterInfoTemplate["ic_info"] = ""
     TurtleRPCharacterInfoTemplate["ooc_info"] = ""
     TurtleRPCharacterInfoTemplate["ic_pronouns"] = ""
@@ -171,11 +173,11 @@ function TurtleRP:OnEvent()
 
 
     -- Intro message
-    TurtleRP.log("Welcome, |cff8C48AB" .. TurtleRPCharacterInfo["full_name"] .. "|ccfFFFFFF, to TurtleRP.")
-    TurtleRP.log("Type |cff8C48AB/ttrp |ccfFFFFFFto open the addon, or |cff8C48AB/ttrp help|ccfFFFFFF to see slash commands.")
-
+    TurtleRP.log(localize("log.welcome1") .. "|cff8C48AB" .. TurtleRPCharacterInfo["full_name"] .. "|ccfFFFFFF" .. localize("log.welcome2"))
+    TurtleRP.log(localize("log.info"))
+    
     if not TurtleRP.canChat() and UnitLevel("player") ~= 0 then
-      TurtleRP.log("Sorry, but due to Turtle WoW restrictions you can't access other player's TurtleRP profiles until level "..TurtleRP.minChatLevel..".")
+      TurtleRP.log(localize("log.lowLevel1") .. TurtleRP.minChatLevel .. localize("log.lowLevel2"))
     end
 
     TurtleRP.communication_prep()
@@ -197,9 +199,9 @@ function TurtleRP:OnEvent()
     SLASH_TURTLERP1 = "/ttrp";
     function SlashCmdList.TURTLERP(msg)
       if msg == "help" then
-        TurtleRP.log("|cff8C48AB/ttrp|ccfFFFFFF - open admin panel")
-        TurtleRP.log("|cff8C48AB/ttrp dir|ccfFFFFFF - open directory panel")
-        TurtleRP.log("Visit our Discord for more help.")
+        TurtleRP.log(localize("log.helpTTRP"))
+        TurtleRP.log(localize("log.helpTTRPDir"))
+        TurtleRP.log(localize("log.help"))
       elseif msg == "dir" or msg == "directory" then
         TurtleRP.OpenDirectory()
       elseif msg == "tray" then
@@ -314,6 +316,10 @@ function TurtleRP.populate_interface_user_data()
   if TurtleRPSettings["tray"] == "1" then
     TurtleRP_AdminSB_Content5_TrayButton:SetChecked(true)
     TurtleRP_IconTray:Show()
+
+    -- Localize Icon Tray buttons
+    TurtleRP_IconTray_RPModeButton:SetText(localize("tray.buttonRP"))
+    TurtleRP_IconTray_ICModeButton:SetText(localize("tray.buttonIC"))
   end
 
   if TurtleRPSettings["minimap_icon_size"] == "1" then

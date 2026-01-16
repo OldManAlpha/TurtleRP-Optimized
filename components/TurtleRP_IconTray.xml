@@ -16,7 +16,7 @@
       <BorderColor r="255" g="255" b="255" a="0" />
     </Backdrop>
     <Frames>
-      <Button name="$parent_RPModeButton" inherits="UIPanelButtonGrayTemplate" movable="true" text="RP">
+      <Button name="$parent_RPModeButton" inherits="UIPanelButtonGrayTemplate" movable="true" text="test">
         <Size>
           <AbsDimension x="25" y="25"/>
         </Size>
@@ -41,7 +41,7 @@
           </OnClick>
           <OnEnter>
             GameTooltip:SetOwner(this, "ANCHOR_TOPRIGHT")
-            GameTooltip:SetText("Enable RP Mode")
+            GameTooltip:SetText(localize("tray.enableRP"))
             GameTooltip:Show()
           </OnEnter>
           <OnLeave>
@@ -83,7 +83,7 @@
           </OnClick>
           <OnEnter>
             GameTooltip:SetOwner(this, "ANCHOR_TOPRIGHT")
-            GameTooltip:SetText("Disable RP Mode")
+            GameTooltip:SetText(localize("tray.disableRP"))
             GameTooltip:Show()
           </OnEnter>
           <OnLeave>
@@ -122,7 +122,7 @@
           </OnClick>
           <OnEnter>
             GameTooltip:SetOwner(this, "ANCHOR_TOPRIGHT")
-            GameTooltip:SetText("You are OOC (Out Of Character)")
+            GameTooltip:SetText(localize("tray.enableIC"))
             GameTooltip:Show()
           </OnEnter>
           <OnLeave>
@@ -161,7 +161,7 @@
           </OnClick>
           <OnEnter>
             GameTooltip:SetOwner(this, "ANCHOR_TOPRIGHT")
-            GameTooltip:SetText("You are IC (In Character)")
+            GameTooltip:SetText(localize("tray.disableIC"))
             GameTooltip:Show()
           </OnEnter>
           <OnLeave>
@@ -203,11 +203,13 @@
           <OnClick>
             if TurtleRP.movingIconTray == nil then
               TurtleRP_ChatBox:Show()
+              TurtleRP_ChatBox_ChatBoxTitle:SetText(localize("chat.title"))
+              TurtleRP_ChatBox_SendRPText:SetText(localize("chat.send"))
             end
           </OnClick>
           <OnEnter>
             GameTooltip:SetOwner(this, "ANCHOR_TOPRIGHT")
-            GameTooltip:SetText("Open Extended Chat Window")
+            GameTooltip:SetText(localize("tray.openChat"))
             GameTooltip:Show()
           </OnEnter>
           <OnLeave>
@@ -253,7 +255,7 @@
           </OnClick>
           <OnEnter>
             GameTooltip:SetOwner(this, "ANCHOR_TOPRIGHT")
-            GameTooltip:SetText("Open Main Window")
+            GameTooltip:SetText(localize("tray.openMain"))
             GameTooltip:Show()
           </OnEnter>
           <OnLeave>
@@ -299,7 +301,7 @@
           </OnClick>
           <OnEnter>
             GameTooltip:SetOwner(this, "ANCHOR_TOPRIGHT")
-            GameTooltip:SetText("Open Directory Window")
+            GameTooltip:SetText(localize("tray.openDirectory"))
             GameTooltip:Show()
           </OnEnter>
           <OnLeave>
@@ -350,9 +352,9 @@
           <OnEnter>
             GameTooltip:SetOwner(this, "ANCHOR_TOPRIGHT")
             if ShowingHelm() then
-              GameTooltip:SetText("Hide Helm")
+              GameTooltip:SetText(localize("tray.hideHelmet"))
             else
-              GameTooltip:SetText("Show Helm")
+              GameTooltip:SetText(localize("tray.showHelmet"))
             end
             GameTooltip:Show()
           </OnEnter>
@@ -404,9 +406,9 @@
           <OnEnter>
             GameTooltip:SetOwner(this, "ANCHOR_TOPRIGHT")
             if ShowingCloak() then
-              GameTooltip:SetText("Hide Cloak")
+              GameTooltip:SetText(localize("tray.hideCloak"))
             else
-              GameTooltip:SetText("Show Cloak")
+              GameTooltip:SetText(localize("tray.showCloak"))
             end
             GameTooltip:Show()
           </OnEnter>
@@ -459,10 +461,10 @@
           </OnClick>
           <OnEnter>
             GameTooltip:SetOwner(this, "ANCHOR_TOPRIGHT")
-            if ShowingCloak() then
-              GameTooltip:SetText("Toggle NPC and Player Names")
+            if GetCVar("UnitNameNPC") == "1" or GetCVar("UnitNamePlayer") == "1" then
+              GameTooltip:SetText(localize("tray.hideNames"))
             else
-              GameTooltip:SetText("Show Cloak")
+              GameTooltip:SetText(localize("tray.showNames"))
             end
             GameTooltip:Show()
           </OnEnter>

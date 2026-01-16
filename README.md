@@ -43,6 +43,10 @@ Next Up
 
 ### Recently Done
 
+1.1.2
+- Added localization support
+- Added german localization
+
 1.1.1
 
 - Directory, when ordered, now snaps user back to the top of the scrollbar
